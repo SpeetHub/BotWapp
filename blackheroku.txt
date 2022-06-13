@@ -1,0 +1,19 @@
+let message = await prepareWAMessageMedia({ image: fs.readFileSync('./lib/vekna2.jpg') }, { upload: venom.waUploadToServer })
+                const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
+                    templateMessage: {
+                        hydratedTemplate: {
+                            imageMessage: message.imageMessage,
+                            hydratedContentText: venomkkk,
+                            hydratedButtons: [{
+                                urlButton: {
+                                    displayText: '💖 𝑰𝒏𝒔𝒕𝒂𝒈𝒓𝒂𝒎',
+                                    url: 'https://github.com/Venom-ofc/VenomBot-md'
+                                }
+                            }]
+                        }
+                    }
+                }), { userJid: m.chat, quoted: m })
+                venom.relayMessage(m.chat, template.message, { messageId: template.key.id })
+            }
+            
+            break   
